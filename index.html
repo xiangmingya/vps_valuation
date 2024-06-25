@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPS剩余价值计算器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator">
+        <h1>VPS剩余价值计算器</h1>
+        <form id="calculator-form">
+            <div class="form-group">
+                <div class="form-row">
+                    <label for="purchaseAmount">购鸡金额（CNY）:</label>
+                    <input type="number" id="purchaseAmount" name="purchaseAmount" required>
+                </div>
+                <div class="form-row">
+                    <label for="renewalAmount">续费金额:</label>
+                    <input type="number" id="renewalAmount" name="renewalAmount" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <label for="currency">货币种类:</label>
+                    <select id="currency" name="currency" onchange="updateExchangeRate()" required>
+                        <option value="USD">美元</option>
+                        <option value="EUR">欧元</option>
+                        <option value="GBP">英镑</option>
+                        <option value="CAD">加元</option>
+                        <option value="JPY">日元</option>
+                        <option value="KRW">韩元</option>
+                        <option value="HKD">港币</option>
+                        <option value="TWD">新台币</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="exchangeRate">今日汇率:</label>
+                    <input type="number" step="0.0001" id="exchangeRate" name="exchangeRate" required readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <label for="paymentPeriod">付款周期:</label>
+                    <select id="paymentPeriod" name="paymentPeriod" required>
+                        <option value="1">月付</option>
+                        <option value="3">季付</option>
+                        <option value="6">半年付</option>
+                        <option value="12">年付</option>
+                        <option value="24">两年付</option>
+                        <option value="36">三年付</option>
+                        <option value="60">五年付</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="purchaseDate">购买日期:</label>
+                    <input type="date" id="purchaseDate" name="purchaseDate" value="2024-06-25" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <label for="expiryDate">到期时间:</label>
+                    <input type="date" id="expiryDate" name="expiryDate" required>
+                </div>
+            </div>
+            <button type="button" onclick="calculate()">计算</button>
+        </form>
+        <div id="results">
+            <p>剩余价值: <span id="remainingValue"></span> CNY</p>
+            <p>溢价金额: <span id="overchargeAmount"></span> CNY</p>
+        </div>
+        <div id="api-info">
+            <p>汇率数据来源: <a href="https://www.exchangerate-api.com/" target="_blank">ExchangeRate-API</a></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
