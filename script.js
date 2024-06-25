@@ -1,4 +1,4 @@
-const exchangeRateApiKey = ' you key ';
+const exchangeRateApiKey = '9493894c577c5b1000ced8e4';
 const exchangeRateApiUrl = `https://v6.exchangerate-api.com/v6/${exchangeRateApiKey}/latest/CNY`;
 
 let exchangeRates = {};
