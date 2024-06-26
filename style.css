@@ -112,3 +112,9 @@ button:hover {
         flex: 0 0 100%;
     }
 }
+@media (max-width: 768px) {
+  .calculator {
+    padding-top: 20px; /* 增加顶部内边距 */
+    margin-top: 20px;  /* 增加顶部外边距 */
+  }
+}
