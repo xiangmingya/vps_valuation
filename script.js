@@ -1,5 +1,6 @@
-const exchangeRateApiKey = '9493894c577c5b1000ced8e4';
-const exchangeRateApiUrl = `https://v6.exchangerate-api.com/v6/${exchangeRateApiKey}/latest/CNY`;
+//const exchangeRateApiKey = 'yuokey';
+//const exchangeRateApiUrl = `https://v6.exchangerate-api.com/v6/${exchangeRateApiKey}/latest/CNY`;
+const exchangeRateApiUrl = `https://api.exchangerate-api.com/v4/latest/CNY`;
 
 let exchangeRates = {};
 
@@ -8,7 +9,9 @@ async function fetchExchangeRates() {
     try {
         const response = await fetch(exchangeRateApiUrl);
         const data = await response.json();
-        const cnyRates = data.conversion_rates;
+        //const cnyRates = data.conversion_rates;
+         const cnyRates = data.rates;
+        
         
         exchangeRates = {
             "USD": 1 / cnyRates["USD"],
