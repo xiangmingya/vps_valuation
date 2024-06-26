@@ -58,19 +58,3 @@ document.addEventListener('DOMContentLoaded', () => {
     updateExchangeRate();
 });
 
-//页面浏览次数
- window.onload = function() {
-    fetch('/record-view', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('viewCount').textContent = data.views;
-    })
-    .catch(error => {
-        console.error('Failed to record view:', error);
-    });
-}
