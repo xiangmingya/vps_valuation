@@ -28,6 +28,15 @@ async function fetchExchangeRates() {
         console.error('Failed to fetch exchange rates:', error);
     }
 }
+ // 获取当前日期
+ var currentDate = new Date().toISOString().split('T')[0];
+ // 设置input的默认值为当前日期
+ document.getElementById('purchaseDate').value = currentDate;
+function updateExchangeRate() {
+    const currency = document.getElementById('currency').value;
+    const exchangeRate = exchangeRates[currency];
+    document.getElementById('exchangeRate').value = exchangeRate ? exchangeRate.toFixed(4) : '';
+}
 
 function updateExchangeRate() {
     const currency = document.getElementById('currency').value;
